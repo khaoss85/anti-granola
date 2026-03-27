@@ -3,12 +3,14 @@ import { join } from 'path'
 import { TrayManager } from './tray'
 import { SettingsStore } from './settings-store'
 import { DetectorManager } from './detection'
+import { ShieldManager } from './shield/shield-manager'
 import { registerIpcHandlers } from './ipc-handlers'
 
 let mainWindow: BrowserWindow | null = null
 let trayManager: TrayManager | null = null
 let detectorManager: DetectorManager | null = null
 let settingsStore: SettingsStore | null = null
+let shieldManager: ShieldManager | null = null
 
 const isDev = !!process.env.ELECTRON_RENDERER_URL
 
@@ -31,7 +33,6 @@ function createWindow(): BrowserWindow {
   // Load the renderer
   if (process.env.ELECTRON_RENDERER_URL) {
     win.loadURL(process.env.ELECTRON_RENDERER_URL)
-    win.webContents.openDevTools({ mode: 'bottom' })
   } else {
     win.loadFile(join(__dirname, '../renderer/index.html'))
   }
@@ -55,13 +56,22 @@ app.whenReady().then(() => {
 
   settingsStore = new SettingsStore()
   detectorManager = new DetectorManager()
+  shieldManager = new ShieldManager()
 
   mainWindow = createWindow()
 
   // Tray
   trayManager = new TrayManager(mainWindow, {
     onToggleShield: () => {
-      // Stub: will be connected to ShieldManager in Phase 2
+      if (!shieldManager || !settingsStore) return
+      if (shieldManager.getState().isActive) {
+        shieldManager.deactivate()
+      } else {
+        const settings = settingsStore.get()
+        shieldManager.activate(settings.defaultLevel).catch(() => {
+          // Error is emitted via shieldManager events, handled by IPC handlers
+        })
+      }
     },
     onQuit: () => {
       app.quit()
@@ -70,16 +80,45 @@ app.whenReady().then(() => {
   trayManager.create()
 
   // Register IPC handlers
-  registerIpcHandlers(mainWindow, detectorManager, settingsStore)
+  registerIpcHandlers(mainWindow, detectorManager, settingsStore, shieldManager)
 
-  // Update tray based on detection state
+  // Update tray based on detection and shield state
   detectorManager.on('state-change', (state) => {
-    if (state.level === 'confirmed' || state.level === 'probable') {
+    if (shieldManager?.getState().isActive) {
+      trayManager?.setState('shielded')
+    } else if (state.level === 'confirmed' || state.level === 'probable') {
       trayManager?.setState('threat')
     } else if (state.isScanning) {
       trayManager?.setState('monitoring')
     } else {
       trayManager?.setState('inactive')
+    }
+  })
+
+  shieldManager.on('state-change', (shieldState) => {
+    if (shieldState.isActive) {
+      trayManager?.setState('shielded')
+    } else {
+      // Revert to detection-based state
+      const detState = detectorManager?.getState()
+      if (detState && (detState.level === 'confirmed' || detState.level === 'probable')) {
+        trayManager?.setState('threat')
+      } else if (detState?.isScanning) {
+        trayManager?.setState('monitoring')
+      } else {
+        trayManager?.setState('inactive')
+      }
+    }
+  })
+
+  // Auto-shield: when detection confirms threat and autoShield is enabled
+  detectorManager.on('threat-detected', (data) => {
+    if (!shieldManager || !settingsStore) return
+    const settings = settingsStore.get()
+    if (settings.autoShield && data.level === 'confirmed' && !shieldManager.getState().isActive) {
+      shieldManager.activate(settings.defaultLevel).catch(() => {
+        // Error handled by event listeners
+      })
     }
   })
 
@@ -109,6 +148,7 @@ declare module 'electron' {
 
 app.on('before-quit', () => {
   app.isQuitting = true
+  shieldManager?.deactivate()
   detectorManager?.stop()
   trayManager?.destroy()
 })

@@ -1,0 +1,115 @@
+---
+title: "How to Block Otter.ai From Recording Your Meetings"
+description: "Learn how to detect and block Otter.ai from recording your meetings without your consent. Includes information about the Otter.ai class-action lawsuit."
+date: "2026-03-27"
+excerpt: "Otter.ai is facing a class-action lawsuit for recording without consent. Here's how to protect yourself."
+---
+
+## Otter.ai: Two Ways to Record Your Meetings
+
+**Otter.ai** is one of the most widely used AI transcription services, with millions of users across businesses and individual accounts. What many people don't realize is that Otter operates in two fundamentally different modes — and one of them is nearly invisible.
+
+### The Visible Bot
+
+Otter's original approach uses a meeting bot — a participant called something like "Otter.ai Notetaker" that joins your Zoom, Google Meet, or Microsoft Teams call. Everyone in the meeting can see it. The host can remove it. It's visible and, to some degree, transparent.
+
+Most people's experience with Otter is limited to this mode. They've seen the bot, maybe kicked it out of a meeting, and moved on.
+
+### The Stealth Desktop App
+
+Otter also offers a **desktop application** that can capture meeting audio directly from the user's system — the same approach used by [Granola](/blog/block-granola-transcription) and other stealth transcription tools. When someone installs Otter's desktop app and enables its transcription features, it can record meetings **without joining as a visible bot**.
+
+This means blocking Otter's bot from your meetings doesn't fully protect you. If any participant has the Otter desktop app installed, your meeting audio can still be captured, transcribed, and uploaded to Otter's servers — without your knowledge.
+
+[Anti Granola](/) is a free meeting privacy tool that detects both Otter's bot-based and desktop-based transcription, alerting you when your meetings are being recorded by any method.
+
+## The Otter.ai Class-Action Lawsuit
+
+Otter.ai's recording practices have attracted legal scrutiny. The company is facing a **class-action lawsuit** alleging that it recorded conversations without obtaining consent from all parties — a violation of wiretapping and eavesdropping laws in multiple jurisdictions.
+
+The lawsuit highlights several key issues:
+
+- **Otter's bot was joining meetings and recording without the explicit consent of all participants.** While meeting hosts may have authorized the bot, other participants were recorded without being asked.
+- **In all-party consent states, this is potentially illegal.** States like California, Illinois, Florida, Pennsylvania, and others require every party to a conversation to consent to recording. A single participant authorizing Otter doesn't satisfy this requirement.
+- **The desktop app makes the consent problem worse.** When Otter records via its desktop app rather than a visible bot, participants have no opportunity to even object — they don't know it's happening.
+
+This lawsuit has become an important legal precedent for the broader AI meeting transcription industry. For more on the legal landscape, see our in-depth article on [the invisible meeting transcription problem](/blog/invisible-meeting-transcription-problem).
+
+## Why Blocking the Bot Isn't Enough
+
+Many organizations have responded to Otter's bot by implementing policies or platform settings to block unknown participants from joining meetings. This includes:
+
+- Requiring meeting passwords
+- Using waiting rooms to screen participants
+- Configuring platform settings to block third-party bots
+
+These measures are effective against Otter's bot mode. They do nothing against Otter's desktop app.
+
+Here's why: the desktop app doesn't join the meeting as a separate participant. It runs on a legitimate participant's computer and captures audio from their system output. From the meeting platform's perspective, there's only the regular human participant — no bot, no additional connection, no indicator.
+
+**The platform cannot distinguish between a participant who is simply listening and a participant whose computer is also transcribing every word.**
+
+## How Anti Granola Detects Otter.ai
+
+[Anti Granola](/) detects Otter.ai through both of its recording modes — the visible bot and the invisible desktop app.
+
+### Process Detection
+
+Anti Granola monitors running processes on your system for Otter.ai's desktop application. When the Otter app is running and actively capturing audio, Anti Granola identifies its process signature and alerts you. This detection covers both the main Otter application and its background audio capture processes.
+
+### Network Monitoring
+
+Otter.ai's desktop app sends captured audio and transcription data to Otter's cloud servers. Anti Granola monitors outbound network traffic for connections to Otter's known API endpoints and audio processing infrastructure. This provides detection even if Otter changes its process naming conventions.
+
+### Bot Detection
+
+For Otter's bot mode, Anti Granola can detect when an Otter bot is present in your meeting through participant monitoring and known bot signatures.
+
+## Step-by-Step: Protecting Your Meetings From Otter.ai
+
+### 1. Install Anti Granola
+
+Download [Anti Granola](/) from the homepage. It's free, requires no account, and installs in under a minute on macOS.
+
+### 2. Join Your Meetings Normally
+
+Anti Granola runs in the background. You don't need to configure anything before each meeting. It's always monitoring.
+
+### 3. Receive Real-Time Alerts
+
+If Otter.ai is detected — whether as a bot in your meeting or as a desktop process capturing audio — Anti Granola immediately notifies you with a clear alert showing exactly what was detected and how.
+
+### 4. Activate Audio Shield (Optional)
+
+If you want to actively protect your audio from being transcribed, enable **Audio Shield**. This feature applies subtle audio modifications to your microphone output that degrade AI transcription accuracy while keeping your voice clear and natural to human listeners.
+
+Audio Shield is particularly effective against Otter.ai's desktop app because it modifies the audio before it reaches the system output — meaning Otter captures the protected audio, not your original voice.
+
+### 5. Take Appropriate Action
+
+Depending on your situation, you might:
+
+- **Confront the issue directly.** Ask the participant to stop recording or leave the meeting.
+- **Report the recording.** In all-party consent jurisdictions, unauthorized recording may be illegal.
+- **Continue with Audio Shield active.** If you can't identify who is recording or prefer not to confront, Audio Shield ensures the transcript is unreliable.
+- **Escalate to your organization's IT or legal team.** If Otter is being used without authorization in your workplace, this may violate company policies.
+
+## Otter.ai's Broader Impact on Meeting Privacy
+
+The Otter.ai class-action lawsuit is significant not just for Otter's users, but for the entire AI transcription industry. It establishes that:
+
+- **Consent from one participant is not consent from all.** The person who installs and activates a transcription tool cannot unilaterally consent on behalf of everyone in the meeting.
+- **Invisible recording compounds the legal problem.** When participants can't see that recording is happening, they can't exercise their right to object.
+- **Companies may be liable for how their tools are used.** Otter built a product that facilitates non-consensual recording. The lawsuit argues this creates liability for the company, not just individual users.
+
+These same principles apply to every stealth transcription tool on the market, including Granola. For a detailed guide on blocking Granola, see our article on [how to block Granola from transcribing your meetings](/blog/block-granola-transcription).
+
+## Protect Yourself Today
+
+Whether you're concerned about Otter.ai specifically or stealth meeting transcription in general, the first step is detection. You can't protect against what you can't see.
+
+Anti Granola makes the invisible visible. It detects Otter.ai, Granola, Fireflies, and other transcription tools operating at the system level — the same level these tools use to capture your audio.
+
+**[Download Anti Granola for free](/)** and find out if your meetings are truly private.
+
+For a comprehensive guide to detecting all forms of secret meeting transcription, read [how to know if someone is secretly transcribing your meeting](/blog/detect-secret-meeting-transcription).

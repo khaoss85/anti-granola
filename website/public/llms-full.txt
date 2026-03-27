@@ -1,0 +1,134 @@
+# Anti Granola — Full Context for Language Models
+
+> Anti Granola is a free, open-source desktop application for macOS and Windows that detects and blocks invisible AI meeting transcription tools.
+
+## What is Anti Granola?
+
+Anti Granola is a security application that protects meeting privacy. A new generation of AI meeting tools — led by Granola, Otter.ai, Fireflies.ai, Read.ai, Fathom, and others — can silently capture meeting audio through the system audio pipeline without joining as a visible bot and without any indicator to other participants. Anti Granola detects these tools in real-time and can disrupt their transcription using psychoacoustic techniques.
+
+## Why Does Anti Granola Exist?
+
+The invisible meeting transcription market is growing rapidly:
+
+- **Granola** raised $125M at a $1.5B valuation (March 2026). It captures meeting audio through the system's audio pipeline — no bot, no indicator, completely invisible to other participants.
+- **Otter.ai** is facing a class-action lawsuit for recording meetings without proper consent from all participants.
+- **Stanford University** has officially banned AI meeting bots from its meetings, recognizing the privacy threat they pose.
+- **13 U.S. states** have two-party (all-party) consent laws for recording. Under GDPR in Europe, recording without consent violates data protection laws.
+
+Traditional meeting platform indicators (like the red recording dot in Zoom) only detect in-platform recording. Stealth tools like Granola bypass these entirely. Anti Granola fills this gap.
+
+## How Does Anti Granola Work?
+
+Anti Granola uses two complementary detection methods:
+
+1. **Process Detection**: Monitors running processes on your system for known transcription tool signatures. Identifies when tools like Granola, Otter.ai, Fireflies, Read.ai, tl;dv, Fathom, Supernormal, and Tactiq are active.
+
+2. **Network Detection**: Analyzes network traffic patterns to identify connections to transcription service endpoints, catching tools even if they disguise their process names.
+
+When a transcription tool is detected, Anti Granola can:
+- Alert you with a notification
+- Show which specific tool was detected
+- Activate Audio Shield to disrupt transcription
+
+## Audio Shield Technology
+
+The Audio Shield is Anti Granola's active protection feature. It uses psychoacoustic perturbation — carefully crafted audio signals that are imperceptible to human ears but disrupt AI speech-to-text systems. Other meeting participants hear your normal voice; the AI transcription receives garbled audio.
+
+Audio Shield has 4 protection levels:
+- **Stealth**: Minimal perturbation, nearly zero impact on call quality
+- **Low**: Light perturbation, suitable for most calls
+- **Medium**: Moderate perturbation for higher security needs
+- **Maximum**: Strongest perturbation for maximum transcription disruption
+
+## Detection Matrix
+
+| Tool | Type | Process Detection | Network Detection |
+|------|------|:-:|:-:|
+| Granola | Stealth | Yes | Yes |
+| Otter.ai | Bot + Stealth | Yes | Yes |
+| Fireflies.ai | Bot | Yes | Yes |
+| Read.ai | Stealth | Yes | Yes |
+| tl;dv | Bot | Yes | Yes |
+| Fathom | Stealth | Yes | Yes |
+| Supernormal | Bot | Yes | Coming soon |
+| Tactiq | Extension | Yes | Coming soon |
+
+**Type definitions:**
+- **Stealth**: Runs locally on the user's machine, invisible to other participants. No bot joins the call.
+- **Bot**: Joins the meeting as a visible participant (bot). May also have a stealth mode.
+- **Extension**: Browser extension that captures audio from the browser tab.
+
+## Platform Compatibility
+
+Anti Granola works with all major meeting platforms:
+- Zoom
+- Google Meet
+- Microsoft Teams
+- Webex
+- Any other platform that uses system audio
+
+It monitors at the system level, so it detects transcription tools regardless of which meeting platform you're using.
+
+## Technical Details
+
+- **100% local processing**: All detection and audio processing happens on your device. No data is sent to external servers.
+- **Open source**: Full source code available on GitHub under the MIT license.
+- **Supported operating systems**: macOS and Windows.
+- **Resource usage**: Lightweight background process with minimal CPU and memory footprint.
+
+## Frequently Asked Questions
+
+### Is it legal to use Anti Granola?
+Yes, absolutely. Anti Granola runs locally on your own computer and simply monitors what software is active during your meetings. It's the equivalent of checking your Task Manager. In fact, many jurisdictions give you the legal right to know when you're being recorded — Anti Granola helps you exercise that right.
+
+### Does Anti Granola block Granola from running?
+Anti Granola offers multiple protection levels. At its base level, it detects transcription tools and alerts you. With Audio Shield enabled, it can disrupt transcription accuracy using psychoacoustic perturbation — making the captured audio unintelligible to AI while sounding normal to humans.
+
+### Will people on the call hear the Audio Shield?
+No. The Audio Shield uses psychoacoustic techniques designed to be imperceptible to human ears while disrupting AI speech-to-text systems. Other participants will hear your normal voice. The perturbation targets the specific frequency patterns that transcription algorithms rely on.
+
+### Does it work with Zoom, Google Meet, Microsoft Teams?
+Yes. Anti Granola works with all major meeting platforms including Zoom, Google Meet, Microsoft Teams, Webex, and others. It monitors at the system level, so it detects transcription tools regardless of which meeting platform you're using.
+
+### How do I know if someone is recording my meeting?
+Traditional platform indicators (like the red recording dot) only detect in-platform recording. Stealth tools like Granola bypass these entirely. Anti Granola monitors for process-level and network-level signatures of known transcription tools, catching what platform indicators miss.
+
+### Is Granola recording without my consent legal?
+It depends on your jurisdiction. In 13 U.S. states (including California, Illinois, and Florida), all parties must consent to recording. Under GDPR in Europe, recording without consent violates data protection laws. The Otter.ai class-action lawsuit shows this is an active legal issue. Regardless of legality, you deserve to know when you're being recorded.
+
+### What is Granola (the app)?
+Granola is a $1.5B AI meeting notes startup that captures meeting audio through your system's audio pipeline. Unlike traditional meeting bots (like Otter.ai's bot or Fireflies bot), Granola runs locally and captures audio silently — no bot joins the call, no recording indicator appears, and other participants have no way to know they're being recorded. This is what makes it a "stealth" transcription tool.
+
+### What is the difference between Anti Granola and a VPN?
+A VPN encrypts your internet connection but does nothing to prevent local audio capture. Stealth transcription tools like Granola capture audio before it's even sent over the network — they tap into the system audio pipeline directly. Anti Granola detects these local processes and can disrupt their audio capture. They solve completely different problems.
+
+## Comparisons
+
+### Anti Granola vs. Turning Off Your Microphone
+Muting your microphone prevents all communication. Anti Granola lets you speak normally while disrupting only the AI transcription. You maintain full participation in your meeting.
+
+### Anti Granola vs. Asking "Is Anyone Recording?"
+People using stealth tools may not disclose it — either intentionally or because they don't realize their tool is transcribing. Anti Granola provides technical verification rather than relying on trust.
+
+### Anti Granola vs. Using a Different Meeting Platform
+Stealth transcription tools work across all platforms. Switching from Zoom to Teams doesn't help because tools like Granola capture at the system audio level, not the platform level.
+
+## Legal Context
+
+The legality of recording meetings without consent varies by jurisdiction:
+
+- **United States**: 13 states require all-party consent (California, Connecticut, Delaware, Florida, Illinois, Maryland, Massachusetts, Michigan, Montana, New Hampshire, Oregon, Pennsylvania, Washington). Federal law requires only one-party consent.
+- **European Union**: Under GDPR, recording individuals without their knowledge or consent generally violates data protection regulations.
+- **United Kingdom**: The Regulation of Investigatory Powers Act (RIPA) and Data Protection Act govern recording consent.
+- **Canada**: One-party consent federally, but provincial laws vary.
+- **Australia**: Generally requires all-party consent for recording private conversations.
+
+Anti Granola helps users exercise their right to know when they're being recorded, regardless of jurisdiction.
+
+## Links
+
+- **Homepage**: https://antigranola.com
+- **Download**: https://antigranola.com/download
+- **Blog**: https://antigranola.com/blog
+- **GitHub**: https://github.com/khaoss85/anti-granola
+- **LLM summary**: https://antigranola.com/llms.txt

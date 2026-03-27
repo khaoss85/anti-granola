@@ -1,4 +1,5 @@
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
+import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 
@@ -7,6 +8,7 @@ export default defineConfig({
     plugins: [
       externalizeDepsPlugin({
         // Bundle electron-store (pure ESM) into the main process output
+        // naudiodon is a native module — kept external by default
         exclude: ['electron-store'],
       }),
     ],
@@ -44,6 +46,6 @@ export default defineConfig({
         '@shared': resolve(__dirname, 'src/shared'),
       },
     },
-    plugins: [tailwindcss()],
+    plugins: [react(), tailwindcss()],
   },
 })

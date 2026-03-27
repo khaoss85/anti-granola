@@ -1,6 +1,7 @@
 import { ipcMain, BrowserWindow, Notification } from 'electron'
 import { DetectorManager } from './detection'
 import { SettingsStore } from './settings-store'
+import { ShieldManager } from './shield/shield-manager'
 import type { DetectionState, ActivityLogEntry, AppSettings } from '../shared/types'
 import { ShieldLevel } from '../shared/types'
 import * as IPC from '../shared/ipc-channels'
@@ -24,7 +25,8 @@ function safeSend(mainWindow: BrowserWindow, channel: string, ...args: unknown[]
 export function registerIpcHandlers(
   mainWindow: BrowserWindow,
   detectorManager: DetectorManager,
-  settingsStore: SettingsStore
+  settingsStore: SettingsStore,
+  shieldManager: ShieldManager
 ): void {
   // -- Detection handlers --
   ipcMain.handle(IPC.DETECTION_START, () => {
@@ -80,44 +82,72 @@ export function registerIpcHandlers(
     })
   })
 
-  // -- Shield handlers (stubs for Phase 2) --
-  let shieldState = {
-    isActive: false,
-    level: ShieldLevel.Moderate,
-    latencyMs: 0,
-    inputDevice: '',
-    outputDevice: '',
-  }
-
-  ipcMain.handle(IPC.SHIELD_ACTIVATE, (_event, level: ShieldLevel) => {
+  // -- Shield handlers --
+  ipcMain.handle(IPC.SHIELD_ACTIVATE, async (_event, level: ShieldLevel) => {
     if (!VALID_SHIELD_LEVELS.has(level)) return
-    shieldState = { ...shieldState, isActive: true, level }
-    safeSend(mainWindow, IPC.SHIELD_STATE_CHANGED, shieldState)
-    sendLogEntry(mainWindow, {
-      type: 'shield',
-      message: `Shield activated (level ${level})`,
-      severity: 'success',
-    })
+    try {
+      const settings = settingsStore.get()
+      await shieldManager.activate(level, settings.inputDeviceId ?? undefined, settings.outputDeviceId ?? undefined)
+      sendLogEntry(mainWindow, {
+        type: 'shield',
+        message: `Shield activated (level ${level})`,
+        severity: 'success',
+      })
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err)
+      sendLogEntry(mainWindow, {
+        type: 'error',
+        message: `Shield activation failed: ${msg}`,
+        severity: 'warning',
+      })
+      throw err
+    }
   })
 
-  ipcMain.handle(IPC.SHIELD_DEACTIVATE, () => {
-    shieldState = { ...shieldState, isActive: false }
-    safeSend(mainWindow, IPC.SHIELD_STATE_CHANGED, shieldState)
-    sendLogEntry(mainWindow, {
-      type: 'shield',
-      message: 'Shield deactivated',
-      severity: 'info',
-    })
+  ipcMain.handle(IPC.SHIELD_DEACTIVATE, async () => {
+    try {
+      await shieldManager.deactivate()
+      sendLogEntry(mainWindow, {
+        type: 'shield',
+        message: 'Shield deactivated',
+        severity: 'info',
+      })
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err)
+      sendLogEntry(mainWindow, {
+        type: 'error',
+        message: `Shield deactivation failed: ${msg}`,
+        severity: 'warning',
+      })
+    }
   })
 
   ipcMain.handle(IPC.SHIELD_SET_LEVEL, (_event, level: ShieldLevel) => {
     if (!VALID_SHIELD_LEVELS.has(level)) return
-    shieldState = { ...shieldState, level }
-    safeSend(mainWindow, IPC.SHIELD_STATE_CHANGED, shieldState)
+    shieldManager.setLevel(level)
   })
 
   ipcMain.handle(IPC.SHIELD_STATUS, () => {
-    return shieldState
+    return shieldManager.getState()
+  })
+
+  // Forward shield state changes to renderer
+  shieldManager.on('state-change', (state) => {
+    safeSend(mainWindow, IPC.SHIELD_STATE_CHANGED, state)
+  })
+
+  // Forward meter data to renderer
+  shieldManager.on('meter-data', (data) => {
+    safeSend(mainWindow, IPC.AUDIO_METER_DATA, data)
+  })
+
+  // Forward shield errors to activity log
+  shieldManager.on('error', ({ source, error }) => {
+    sendLogEntry(mainWindow, {
+      type: 'error',
+      message: `Audio error (${source}): ${error.message ?? error}`,
+      severity: 'warning',
+    })
   })
 
   // -- Settings handlers --
@@ -143,9 +173,19 @@ export function registerIpcHandlers(
     settingsStore.reset()
   })
 
-  // -- Audio handlers (stubs for Phase 2) --
+  // -- Audio handlers --
   ipcMain.handle(IPC.AUDIO_GET_DEVICES, () => {
-    return []
+    try {
+      return shieldManager.getDeviceManager().getDevices()
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err)
+      sendLogEntry(mainWindow, {
+        type: 'error',
+        message: `Failed to enumerate audio devices: ${msg}`,
+        severity: 'warning',
+      })
+      return []
+    }
   })
 }
 
