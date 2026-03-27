@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Granola",
+    "processNames": ["Granola", "Granola Helper"],
+    "bundleIds": ["ai.granola.app"],
+    "networkEndpoints": ["api.deepgram.com", "listen.deepgram.com"],
+    "processScore": 80,
+    "networkScore": 85
+  },
+  {
+    "name": "Otter.ai",
+    "processNames": ["Otter", "OtterPilot"],
+    "bundleIds": [],
+    "networkEndpoints": ["api.assemblyai.com"],
+    "processScore": 80,
+    "networkScore": 85
+  },
+  {
+    "name": "Fireflies",
+    "processNames": ["Fireflies", "ffai-*"],
+    "bundleIds": [],
+    "networkEndpoints": ["api.fireflies.ai"],
+    "processScore": 80,
+    "networkScore": 85
+  },
+  {
+    "name": "Read.ai",
+    "processNames": ["Read AI", "ReadAI"],
+    "bundleIds": [],
+    "networkEndpoints": [],
+    "processScore": 80,
+    "networkScore": 85
+  },
+  {
+    "name": "tl;dv",
+    "processNames": ["tldv"],
+    "bundleIds": [],
+    "networkEndpoints": [],
+    "processScore": 80,
+    "networkScore": 85
+  },
+  {
+    "name": "Fathom",
+    "processNames": ["Fathom"],
+    "bundleIds": [],
+    "networkEndpoints": [],
+    "processScore": 80,
+    "networkScore": 85
+  },
+  {
+    "name": "Supernormal",
+    "processNames": ["Supernormal"],
+    "bundleIds": [],
+    "networkEndpoints": [],
+    "processScore": 80,
+    "networkScore": 85
+  },
+  {
+    "name": "Tactiq",
+    "processNames": [],
+    "bundleIds": [],
+    "networkEndpoints": ["api.tactiq.io"],
+    "processScore": 80,
+    "networkScore": 85
+  }
+]
