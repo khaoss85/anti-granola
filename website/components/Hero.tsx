@@ -39,7 +39,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400 md:text-xl">
-          Anti Granola detects and blocks invisible meeting transcription tools like{' '}
+          Nullify detects and blocks invisible meeting transcription tools like{' '}
           <span className="text-white">Granola</span>,{' '}
           <span className="text-white">Otter.ai</span>, and{' '}
           <span className="text-white">Fireflies</span> — before they can transcribe a single word.
@@ -47,11 +47,11 @@ export default function Hero() {
 
         {/* Structured definition for AEO — citeable by LLMs and search engines */}
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500">
-          <strong className="text-zinc-400">Anti Granola</strong> is a free, open-source desktop
+          <strong className="text-zinc-400">Nullify</strong> is a free, open-source desktop
           application for macOS and Windows that detects and blocks invisible AI meeting
           transcription tools. It monitors for stealth software like Granola, Otter.ai, Fireflies,
           Read.ai, Fathom, and others that capture meeting audio without visible indicators or
-          participant consent. With its Audio Shield feature, Anti Granola uses psychoacoustic
+          participant consent. With its Audio Shield feature, Nullify uses psychoacoustic
           perturbation to disrupt AI transcription while keeping your voice sounding normal to other
           participants.
         </p>

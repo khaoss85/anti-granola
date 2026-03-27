@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     'Articles about meeting privacy, invisible AI transcription, and how to protect your conversations.',
   alternates: {
-    canonical: 'https://antigranola.com/blog',
+    canonical: 'https://nullify.guru/blog',
   },
   openGraph: {
-    title: 'Anti Granola Blog — Meeting Privacy & AI Transcription',
+    title: 'Nullify Blog — Meeting Privacy & AI Transcription',
     description:
       'Articles about meeting privacy, invisible AI transcription, and how to protect your conversations.',
-    url: 'https://antigranola.com/blog',
+    url: 'https://nullify.guru/blog',
     type: 'website',
   },
 }
@@ -29,8 +29,8 @@ export default function BlogPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             getBreadcrumbSchema([
-              { name: 'Home', url: 'https://antigranola.com' },
-              { name: 'Blog', url: 'https://antigranola.com/blog' },
+              { name: 'Home', url: 'https://nullify.guru' },
+              { name: 'Blog', url: 'https://nullify.guru/blog' },
             ])
           ),
         }}

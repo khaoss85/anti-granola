@@ -1,6 +1,6 @@
 ---
 title: "How to Block Granola From Transcribing Your Meetings"
-description: "Step-by-step guide to detect and block Granola from secretly transcribing your meetings using Anti Granola."
+description: "Step-by-step guide to detect and block Granola from secretly transcribing your meetings using Nullify."
 date: "2026-03-27"
 excerpt: "Granola captures meeting audio through your system's audio pipeline — no bot, no indicator. Here's how to detect and block it."
 ---
@@ -18,7 +18,7 @@ Instead, **Granola captures audio directly from the user's system audio pipeline
 - No notification is sent to any other participant
 - The meeting platform has no idea Granola is running
 
-If you want to protect your meetings from invisible transcription tools like Granola, [Anti Granola](/) is a free privacy tool that detects and blocks stealth transcription in real time.
+If you want to protect your meetings from invisible transcription tools like Granola, [Nullify](/) is a free privacy tool that detects and blocks stealth transcription in real time.
 
 ## The Consent Problem
 
@@ -42,34 +42,34 @@ Because Granola operates at the system audio level rather than the meeting platf
 
 Granola doesn't need any special permissions from the meeting platform. It just needs to be installed on one participant's computer. That's it.
 
-## How to Detect and Block Granola With Anti Granola
+## How to Detect and Block Granola With Nullify
 
-[Anti Granola](/) is designed specifically to detect stealth transcription tools like Granola. Here's how to use it:
+[Nullify](/) is designed specifically to detect stealth transcription tools like Granola. Here's how to use it:
 
-### Step 1: Download and Install Anti Granola
+### Step 1: Download and Install Nullify
 
-Download Anti Granola from the [homepage](/). It's available for macOS and takes less than a minute to install. The app is free — no account required, no subscription.
+Download Nullify from the [homepage](/). It's available for macOS and takes less than a minute to install. The app is free — no account required, no subscription.
 
 ### Step 2: Let It Run in the Background
 
-Once installed, Anti Granola runs quietly in your menu bar. It uses minimal system resources and doesn't interfere with your meetings or any other applications. You don't need to start it before each meeting — it's always watching.
+Once installed, Nullify runs quietly in your menu bar. It uses minimal system resources and doesn't interfere with your meetings or any other applications. You don't need to start it before each meeting — it's always watching.
 
-### Step 3: Anti Granola Detects Granola's Process Signature
+### Step 3: Nullify Detects Granola's Process Signature
 
-Anti Granola continuously monitors your system for the process signatures of known transcription tools. When it detects Granola's process running on your machine — or network patterns consistent with audio being sent to Granola's servers — it immediately triggers an alert.
+Nullify continuously monitors your system for the process signatures of known transcription tools. When it detects Granola's process running on your machine — or network patterns consistent with audio being sent to Granola's servers — it immediately triggers an alert.
 
 The detection works through two complementary methods:
 
-- **Process monitoring:** Anti Granola identifies Granola's executable and its associated background processes. Even if Granola updates its process name, Anti Granola's detection signatures are regularly updated to match.
-- **Network analysis:** Anti Granola watches for outbound connections to Granola's known API endpoints and audio processing servers. This provides a second layer of detection that's independent of process names.
+- **Process monitoring:** Nullify identifies Granola's executable and its associated background processes. Even if Granola updates its process name, Nullify's detection signatures are regularly updated to match.
+- **Network analysis:** Nullify watches for outbound connections to Granola's known API endpoints and audio processing servers. This provides a second layer of detection that's independent of process names.
 
 ### Step 4: Get Alerted and Activate Audio Shield
 
-When Granola is detected, Anti Granola shows a clear notification telling you exactly what was found. At this point, you have two options:
+When Granola is detected, Nullify shows a clear notification telling you exactly what was found. At this point, you have two options:
 
 1. **Know and decide.** Simply knowing that Granola is active may be enough. You can choose to address it directly with the meeting participant, leave the meeting, or continue with awareness.
 
-2. **Enable Audio Shield.** Anti Granola's Audio Shield feature introduces carefully calibrated audio perturbations that disrupt AI transcription while remaining minimally perceptible to human listeners. The meeting sounds normal to everyone on the call, but Granola's transcript becomes unreliable and fragmented.
+2. **Enable Audio Shield.** Nullify's Audio Shield feature introduces carefully calibrated audio perturbations that disrupt AI transcription while remaining minimally perceptible to human listeners. The meeting sounds normal to everyone on the call, but Granola's transcript becomes unreliable and fragmented.
 
 ## How Audio Shield Works
 
@@ -83,12 +83,12 @@ The result: your meeting continues normally for all human participants, but any 
 
 ## What If Someone Else Is Running Granola?
 
-This is the harder scenario. If another participant in your meeting is running Granola on their own computer, Anti Granola on your machine can't directly detect their local process.
+This is the harder scenario. If another participant in your meeting is running Granola on their own computer, Nullify on your machine can't directly detect their local process.
 
-However, Anti Granola still helps in several ways:
+However, Nullify still helps in several ways:
 
 - **Audio Shield protects your outbound audio.** When enabled, the audio modifications are applied to your microphone output before it reaches the meeting platform — meaning the audio that arrives at the other participant's speakers (and therefore Granola's capture) is already protected.
-- **Network detection may still work.** If you're on the same network as the participant running Granola (such as in an office setting), Anti Granola's network monitoring can potentially detect the traffic patterns.
+- **Network detection may still work.** If you're on the same network as the participant running Granola (such as in an office setting), Nullify's network monitoring can potentially detect the traffic patterns.
 - **Awareness is protection.** Just knowing that tools like Granola exist and are widely used changes how you approach sensitive conversations. You can ask participants directly, establish recording policies for your team, or move sensitive discussions to more controlled channels.
 
 For a broader guide on detecting all types of secret meeting transcription, see our article on [how to detect if someone is secretly transcribing your meeting](/blog/detect-secret-meeting-transcription).
@@ -97,6 +97,6 @@ For a broader guide on detecting all types of secret meeting transcription, see 
 
 Granola is a $1.5 billion company with millions of users. It's well-funded, well-designed, and intentionally invisible. The only way to protect yourself from stealth transcription is to detect it at the same level it operates — the system level.
 
-That's what Anti Granola does. It watches for the tools that are watching you.
+That's what Nullify does. It watches for the tools that are watching you.
 
-**[Download Anti Granola for free](/)** and protect your meetings from invisible transcription.
+**[Download Nullify for free](/)** and protect your meetings from invisible transcription.

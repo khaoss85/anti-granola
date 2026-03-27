@@ -17,13 +17,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Anti Granola — Detect & Block Invisible Meeting Transcription",
-    template: "%s | Anti Granola",
+    default: "Nullify — Detect & Block Invisible Meeting Transcription",
+    template: "%s | Nullify",
   },
   description:
     "Free open-source desktop app that detects hidden meeting transcription tools like Granola, Otter.ai, and Fireflies. Protect your meeting privacy.",
   keywords: [
-    "anti granola",
+    "nullify",
     "meeting privacy",
     "block meeting transcription",
     "detect meeting recording",
@@ -34,25 +34,25 @@ export const metadata: Metadata = {
     "speech to text blocker",
     "meeting privacy tool",
   ],
-  authors: [{ name: "Anti Granola" }],
+  authors: [{ name: "Nullify" }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://antigranola.com",
-    siteName: "Anti Granola",
-    title: "Anti Granola — Detect & Block Invisible Meeting Transcription",
+    url: "https://nullify.guru",
+    siteName: "Nullify",
+    title: "Nullify — Detect & Block Invisible Meeting Transcription",
     description:
       "Free open-source desktop app that detects hidden meeting transcription tools like Granola, Otter.ai, and Fireflies. Protect your meeting privacy.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Anti Granola — Detect & Block Invisible Meeting Transcription",
+    title: "Nullify — Detect & Block Invisible Meeting Transcription",
     description:
       "Free open-source desktop app that detects hidden meeting transcription tools. Protect your meeting privacy.",
   },
-  metadataBase: new URL("https://antigranola.com"),
+  metadataBase: new URL("https://nullify.guru"),
   alternates: {
-    canonical: "https://antigranola.com",
+    canonical: "https://nullify.guru",
   },
 };
 

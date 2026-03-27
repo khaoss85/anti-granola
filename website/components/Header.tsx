@@ -13,7 +13,7 @@ export default function Header() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2">
           <Shield className="h-7 w-7 text-red-500" />
-          <span className="text-lg font-bold text-white">Anti Granola</span>
+          <span className="text-lg font-bold text-white">Nullify</span>
         </Link>
 
         {/* Desktop nav */}

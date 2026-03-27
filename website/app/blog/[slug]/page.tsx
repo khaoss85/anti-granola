@@ -24,14 +24,14 @@ export async function generateMetadata({
     title: post.title,
     description: post.description,
     alternates: {
-      canonical: `https://antigranola.com/blog/${slug}`,
+      canonical: `https://nullify.guru/blog/${slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
       publishedTime: post.date,
-      url: `https://antigranola.com/blog/${slug}`,
+      url: `https://nullify.guru/blog/${slug}`,
     },
   }
 }
@@ -85,13 +85,13 @@ export default async function BlogPostPage({
         <div className="mt-16 rounded-2xl border border-red-500/20 bg-red-500/5 p-8 text-center">
           <h3 className="text-xl font-bold text-white">Protect Your Meeting Privacy</h3>
           <p className="mt-2 text-sm text-zinc-400">
-            Download Anti Granola for free and detect invisible transcription tools.
+            Download Nullify for free and detect invisible transcription tools.
           </p>
           <Link
             href="/download"
             className="mt-4 inline-flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700"
           >
-            Download Anti Granola
+            Download Nullify
           </Link>
         </div>
 
@@ -113,9 +113,9 @@ export default async function BlogPostPage({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(
               getBreadcrumbSchema([
-                { name: 'Home', url: 'https://antigranola.com' },
-                { name: 'Blog', url: 'https://antigranola.com/blog' },
-                { name: post.title, url: `https://antigranola.com/blog/${slug}` },
+                { name: 'Home', url: 'https://nullify.guru' },
+                { name: 'Blog', url: 'https://nullify.guru/blog' },
+                { name: post.title, url: `https://nullify.guru/blog/${slug}` },
               ])
             ),
           }}

@@ -4,14 +4,14 @@ const steps = [
   {
     icon: Download,
     step: '01',
-    title: 'Install Anti Granola',
+    title: 'Install Nullify',
     description: 'Download and install the free desktop app. Available for macOS and Windows.',
   },
   {
     icon: Cpu,
     step: '02',
     title: 'Runs in Background',
-    description: 'Anti Granola quietly monitors during your meetings. Zero impact on performance.',
+    description: 'Nullify quietly monitors during your meetings. Zero impact on performance.',
   },
   {
     icon: Bell,

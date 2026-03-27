@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'Anti Granola — Detect & Block Invisible Meeting Transcription'
+export const alt = 'Nullify — Detect & Block Invisible Meeting Transcription'
 export const size = {
   width: 1200,
   height: 630,
@@ -51,7 +51,7 @@ export default async function Image() {
               color: '#ffffff',
             }}
           >
-            Anti Granola
+            Nullify
           </span>
         </div>
         <div

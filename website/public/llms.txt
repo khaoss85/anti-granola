@@ -1,7 +1,7 @@
-# Anti Granola
+# Nullify
 > Free, open-source desktop app that detects and blocks invisible AI meeting transcription tools.
 
-Anti Granola is a security application for macOS and Windows that protects meeting privacy by detecting stealth transcription tools like Granola, Otter.ai, Fireflies.ai, and others that capture meeting audio without visible indicators or participant consent.
+Nullify is a security application for macOS and Windows that protects meeting privacy by detecting stealth transcription tools like Granola, Otter.ai, Fireflies.ai, and others that capture meeting audio without visible indicators or participant consent.
 
 ## Key Features
 - Real-time process and network detection of 8+ transcription tools
@@ -11,8 +11,8 @@ Anti Granola is a security application for macOS and Windows that protects meeti
 - Free and open source (MIT license)
 
 ## Links
-- Homepage: https://antigranola.com
-- Download: https://antigranola.com/download
-- Blog: https://antigranola.com/blog
+- Homepage: https://nullify.guru
+- Download: https://nullify.guru/download
+- Blog: https://nullify.guru/blog
 - GitHub: https://github.com/khaoss85/anti-granola
-- Full LLM context: https://antigranola.com/llms-full.txt
+- Full LLM context: https://nullify.guru/llms-full.txt

@@ -5,14 +5,14 @@ import { ChevronDown } from 'lucide-react'
 
 const faqs = [
   {
-    question: 'Is it legal to use Anti Granola?',
+    question: 'Is it legal to use Nullify?',
     answer:
-      'Yes, absolutely. Anti Granola runs locally on your own computer and simply monitors what software is active during your meetings. It\'s the equivalent of checking your Task Manager. In fact, many jurisdictions give you the legal right to know when you\'re being recorded — Anti Granola helps you exercise that right.',
+      'Yes, absolutely. Nullify runs locally on your own computer and simply monitors what software is active during your meetings. It\'s the equivalent of checking your Task Manager. In fact, many jurisdictions give you the legal right to know when you\'re being recorded — Nullify helps you exercise that right.',
   },
   {
-    question: 'Does Anti Granola block Granola from running?',
+    question: 'Does Nullify block Granola from running?',
     answer:
-      'Anti Granola offers multiple protection levels. At its base level, it detects transcription tools and alerts you. With Audio Shield enabled, it can disrupt transcription accuracy using psychoacoustic perturbation — making the captured audio unintelligible to AI while sounding normal to humans.',
+      'Nullify offers multiple protection levels. At its base level, it detects transcription tools and alerts you. With Audio Shield enabled, it can disrupt transcription accuracy using psychoacoustic perturbation — making the captured audio unintelligible to AI while sounding normal to humans.',
   },
   {
     question: 'Will people on the call hear the audio shield?',
@@ -22,12 +22,12 @@ const faqs = [
   {
     question: 'Does it work with Zoom, Google Meet, Microsoft Teams?',
     answer:
-      'Yes. Anti Granola works with all major meeting platforms including Zoom, Google Meet, Microsoft Teams, Webex, and others. It monitors at the system level, so it detects transcription tools regardless of which meeting platform you\'re using.',
+      'Yes. Nullify works with all major meeting platforms including Zoom, Google Meet, Microsoft Teams, Webex, and others. It monitors at the system level, so it detects transcription tools regardless of which meeting platform you\'re using.',
   },
   {
     question: 'How do I know if someone is recording my meeting?',
     answer:
-      'Traditional platform indicators (like the red recording dot) only detect in-platform recording. Stealth tools like Granola bypass these entirely. Anti Granola monitors for process-level and network-level signatures of known transcription tools, catching what platform indicators miss.',
+      'Traditional platform indicators (like the red recording dot) only detect in-platform recording. Stealth tools like Granola bypass these entirely. Nullify monitors for process-level and network-level signatures of known transcription tools, catching what platform indicators miss.',
   },
   {
     question: 'Is Granola recording without my consent legal?',
@@ -47,7 +47,7 @@ export default function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-lg text-zinc-400">
-            Everything you need to know about Anti Granola.
+            Everything you need to know about Nullify.
           </p>
         </div>
 

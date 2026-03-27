@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2">
               <Shield className="h-6 w-6 text-red-500" />
-              <span className="text-lg font-bold text-white">Anti Granola</span>
+              <span className="text-lg font-bold text-white">Nullify</span>
             </Link>
             <p className="mt-3 max-w-md text-sm text-zinc-500">
               Free, open-source desktop app that detects and blocks invisible meeting
@@ -68,7 +68,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://buymeacoffee.com/antigranola"
+                  href="https://buymeacoffee.com/nullify"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-sm text-zinc-500 transition hover:text-white"
@@ -94,7 +94,7 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-white/10 pt-6">
           <p className="text-center text-xs text-zinc-600">
-            © {new Date().getFullYear()} Anti Granola. Open source under MIT License.
+            © {new Date().getFullYear()} Nullify. Open source under MIT License.
           </p>
         </div>
       </div>

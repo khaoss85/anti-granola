@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getAllSlugs } from '@/lib/blog'
 
-const BASE_URL = 'https://antigranola.com'
+const BASE_URL = 'https://nullify.guru'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogSlugs = getAllSlugs()

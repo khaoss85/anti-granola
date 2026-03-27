@@ -19,7 +19,7 @@ export default function DetectionTable() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold text-white md:text-4xl">What We Detect</h2>
           <p className="mt-4 text-lg text-zinc-400">
-            Anti Granola detects all major meeting transcription tools — including the invisible ones.
+            Nullify detects all major meeting transcription tools — including the invisible ones.
           </p>
         </div>
 

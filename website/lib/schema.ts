@@ -2,7 +2,7 @@ export function getSoftwareSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'Anti Granola',
+    name: 'Nullify',
     applicationCategory: 'SecurityApplication',
     operatingSystem: 'macOS, Windows',
     offers: {
@@ -12,13 +12,13 @@ export function getSoftwareSchema() {
     },
     license: 'https://opensource.org/licenses/MIT',
     description: 'Free open-source desktop app that detects hidden meeting transcription tools like Granola, Otter.ai, and Fireflies. Protect your meeting privacy.',
-    url: 'https://antigranola.com',
+    url: 'https://nullify.guru',
     downloadUrl: 'https://github.com/khaoss85/anti-granola/releases',
     softwareVersion: '1.0.0',
     author: {
       '@type': 'Organization',
-      name: 'Anti Granola',
-      url: 'https://antigranola.com',
+      name: 'Nullify',
+      url: 'https://nullify.guru',
     },
   }
 }
@@ -50,15 +50,15 @@ export function getBlogPostSchema(post: {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    url: `https://antigranola.com/blog/${post.slug}`,
+    url: `https://nullify.guru/blog/${post.slug}`,
     author: {
       '@type': 'Organization',
-      name: 'Anti Granola',
+      name: 'Nullify',
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Anti Granola',
-      url: 'https://antigranola.com',
+      name: 'Nullify',
+      url: 'https://nullify.guru',
     },
   }
 }

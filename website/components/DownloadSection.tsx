@@ -19,7 +19,7 @@ export default function DownloadSection() {
   return (
     <section id="download" className="border-t border-white/5 px-6 py-24">
       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-3xl font-bold text-white md:text-4xl">Download Anti Granola</h2>
+        <h2 className="text-3xl font-bold text-white md:text-4xl">Download Nullify</h2>
         <p className="mt-4 text-lg text-zinc-400">
           Free, open source, and ready to protect your meetings.
         </p>

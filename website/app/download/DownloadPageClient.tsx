@@ -28,7 +28,7 @@ export default function DownloadPageClient() {
           Back to Home
         </Link>
 
-        <h1 className="text-4xl font-bold text-white md:text-5xl">Download Anti Granola</h1>
+        <h1 className="text-4xl font-bold text-white md:text-5xl">Download Nullify</h1>
         <p className="mt-4 text-lg text-zinc-400">
           Protect your meetings from invisible transcription. Free and open source.
         </p>
@@ -117,7 +117,7 @@ export default function DownloadPageClient() {
               'Download the installer for your operating system from GitHub Releases.',
               'Run the installer and follow the on-screen instructions.',
               'Grant the required permissions (system audio access on macOS).',
-              'Anti Granola will appear in your system tray — it\'s now protecting your meetings.',
+              'Nullify will appear in your system tray — it\'s now protecting your meetings.',
             ].map((step, i) => (
               <li key={i} className="flex items-start gap-4 text-zinc-400">
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-600/10 text-sm font-bold text-red-500 ring-1 ring-red-500/20">

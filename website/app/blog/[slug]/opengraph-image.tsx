@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { getPostBySlug, getAllSlugs } from '@/lib/blog'
 
-export const alt = 'Anti Granola Blog'
+export const alt = 'Nullify Blog'
 export const size = {
   width: 1200,
   height: 630,
@@ -16,7 +16,7 @@ export function generateStaticParams() {
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = getPostBySlug(slug)
-  const title = post?.title ?? 'Anti Granola Blog'
+  const title = post?.title ?? 'Nullify Blog'
 
   return new ImageResponse(
     (
@@ -59,7 +59,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               color: '#a1a1aa',
             }}
           >
-            Anti Granola
+            Nullify
           </span>
         </div>
 
@@ -107,7 +107,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                 fontSize: '16px',
               }}
             >
-              antigranola.com/blog
+              nullify.guru/blog
             </div>
           </div>
         </div>
