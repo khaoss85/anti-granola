@@ -1,5 +1,5 @@
 // Central download URLs — update here when releasing a new version
-const VERSION = '0.1.0'
+const VERSION = '0.2.0'
 const BASE = 'https://github.com/khaoss85/nullify/releases/latest/download'
 
 export const DOWNLOADS = {

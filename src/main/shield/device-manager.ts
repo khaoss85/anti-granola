@@ -1,14 +1,8 @@
 import { systemPreferences } from 'electron'
+import { execFileSync } from 'child_process'
 import type { AudioDeviceInfo } from '../../shared/types'
 
 const VIRTUAL_DEVICE_KEYWORDS = ['blackhole', 'vb-cable', 'vb-audio', 'virtual']
-
-// Lazy-load naudiodon to avoid PortAudio init crash at startup
-// (segfaults if microphone permission not yet granted)
-function getNaudiodon() {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  return require('naudiodon') as typeof import('naudiodon')
-}
 
 /** Returns true if microphone access is granted (or not macOS). */
 function hasMicrophoneAccess(): boolean {
@@ -16,14 +10,57 @@ function hasMicrophoneAccess(): boolean {
   return systemPreferences.getMediaAccessStatus('microphone') === 'granted'
 }
 
+/**
+ * Run naudiodon.getDevices() in an isolated child process.
+ * PortAudio can SIGSEGV (null-pointer in native code) which kills the host
+ * process — running it in a child means only the child dies and we gracefully
+ * return an empty array.
+ */
+function getRawDevicesSafe(): Array<{
+  id: number
+  name: string
+  maxInputChannels: number
+  maxOutputChannels: number
+  defaultSampleRate: number
+  hostAPIName: string
+}> {
+  try {
+    // Resolve the naudiodon entry from the main process (asar-aware)
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const resolvedPath = require.resolve('naudiodon')
+    // Native .node binaries live in app.asar.unpacked when packaged
+    const modulePath = resolvedPath.replace(/\.asar([/\\])/, '.asar.unpacked$1')
+
+    const script = [
+      'try {',
+      `  var n = require(${JSON.stringify(modulePath)});`,
+      '  var d = n.getDevices();',
+      '  process.stdout.write(JSON.stringify(d));',
+      '} catch(e) { process.stdout.write("[]"); }',
+    ].join('\n')
+
+    const stdout = execFileSync(process.execPath, ['-e', script], {
+      env: { ...process.env, ELECTRON_RUN_AS_NODE: '1' },
+      timeout: 5000,
+      encoding: 'utf-8',
+      stdio: ['pipe', 'pipe', 'pipe'],
+    })
+
+    const parsed = JSON.parse(stdout.trim())
+    return Array.isArray(parsed) ? parsed : []
+  } catch {
+    // Child crashed (SIGSEGV), timed out, or JSON parse failed — safe fallback
+    return []
+  }
+}
+
 export class DeviceManager {
   getDevices(): AudioDeviceInfo[] {
-    // Guard: on macOS, PortAudio segfaults if microphone permission is not granted
     if (!hasMicrophoneAccess()) {
       return []
     }
 
-    const rawDevices = getNaudiodon().getDevices()
+    const rawDevices = getRawDevicesSafe()
     const devices: AudioDeviceInfo[] = []
 
     for (const d of rawDevices) {

@@ -1,6 +1,6 @@
 appId: com.nullify.app
 productName: Nullify
-copyright: Copyright © 2025 Nullify
+copyright: Copyright © 2026 Nullify
 
 directories:
   output: release
@@ -9,6 +9,9 @@ directories:
 files:
   - dist/**/*
   - assets/**/*
+
+asarUnpack:
+  - "node_modules/naudiodon/**"
 
 mac:
   category: public.app-category.utilities

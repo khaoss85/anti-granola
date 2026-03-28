@@ -79,7 +79,7 @@ export function getSoftwareSchema() {
     description: 'Free open-source desktop app that detects hidden meeting transcription tools like Granola, Otter.ai, and Fireflies. Protect your meeting privacy.',
     url: 'https://nullify.guru',
     downloadUrl: 'https://nullify.guru/download',
-    softwareVersion: '1.0.0',
+    softwareVersion: '0.2.0',
     author: {
       '@type': 'Organization',
       name: 'Nullify',

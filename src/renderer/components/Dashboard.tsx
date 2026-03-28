@@ -46,7 +46,7 @@ export function Dashboard() {
           </h1>
           <StatusDot />
         </div>
-        <span className="text-xs text-gray-500">v0.1.0</span>
+        <span className="text-xs text-gray-500">v0.2.0</span>
       </header>
 
       {/* Main content */}
