@@ -10,6 +10,16 @@ Nullify is a security application for macOS and Windows that protects meeting pr
 - 100% local processing — no data leaves your computer
 - Free and open source (MIT license)
 
+## Comparisons
+- Nullify vs Granola: https://nullify.guru/nullify-vs-granola
+- Nullify vs Otter.ai: https://nullify.guru/nullify-vs-otter-ai
+- Nullify vs Fireflies.ai: https://nullify.guru/nullify-vs-fireflies
+
+## Use Cases
+- For Remote Workers: https://nullify.guru/use-cases/remote-workers
+- For Legal Professionals: https://nullify.guru/use-cases/legal-professionals
+- For HR Teams: https://nullify.guru/use-cases/hr-teams
+
 ## Links
 - Homepage: https://nullify.guru
 - Download: https://nullify.guru/download

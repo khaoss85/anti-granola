@@ -49,6 +49,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/nullify-vs-fireflies" className="text-sm text-zinc-500 transition hover:text-white">
+                  Nullify vs Fireflies.ai
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://github.com/khaoss85/anti-granola"
                   target="_blank"

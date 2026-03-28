@@ -104,6 +104,15 @@ A VPN encrypts your internet connection but does nothing to prevent local audio 
 
 ## Comparisons
 
+### Nullify vs. Granola
+Granola is a $1.5B AI meeting notes tool that captures audio through the system audio pipeline — no bot, no indicator, invisible to other participants. Nullify detects Granola's running process in real time and alerts you. With Audio Shield, Nullify disrupts Granola's transcription using psychoacoustic perturbation. Full comparison: https://nullify.guru/nullify-vs-granola
+
+### Nullify vs. Otter.ai
+Otter.ai records meetings via its OtterPilot bot or desktop app. It auto-joins scheduled meetings and has faced a class-action lawsuit for recording without proper consent. Nullify detects both the bot and the desktop app, alerting you instantly. Full comparison: https://nullify.guru/nullify-vs-otter-ai
+
+### Nullify vs. Fireflies.ai
+Fireflies.ai drops a "Notetaker" bot into meetings via calendar integration. It auto-joins without consent from all parties and uploads audio to cloud servers. Nullify detects Fireflies through process monitoring and network signatures. Full comparison: https://nullify.guru/nullify-vs-fireflies
+
 ### Nullify vs. Turning Off Your Microphone
 Muting your microphone prevents all communication. Nullify lets you speak normally while disrupting only the AI transcription. You maintain full participation in your meeting.
 
@@ -125,10 +134,24 @@ The legality of recording meetings without consent varies by jurisdiction:
 
 Nullify helps users exercise their right to know when they're being recorded, regardless of jurisdiction.
 
+## Who Uses Nullify?
+
+### Remote Workers
+Remote workers spend 23+ meetings per week on Zoom, Google Meet, and Teams. Any participant could be silently recording with AI transcription tools. Nullify runs in the background and alerts you the moment a transcription tool activates. More: https://nullify.guru/use-cases/remote-workers
+
+### Legal Professionals
+AI transcription tools threaten attorney-client privilege. If a privileged conversation is silently recorded and stored on third-party servers, the privilege may be deemed waived. Nullify helps lawyers demonstrate reasonable precautions to protect confidential communications (ABA Model Rule 1.6). More: https://nullify.guru/use-cases/legal-professionals
+
+### HR Teams
+HR meetings involve interviews, performance reviews, disciplinary actions, and employee complaints — highly sensitive conversations protected by employment law. Silent transcription creates unauthorized records that pose compliance risks under GDPR, HIPAA, CCPA, and BIPA. More: https://nullify.guru/use-cases/hr-teams
+
 ## Links
 
 - **Homepage**: https://nullify.guru
 - **Download**: https://nullify.guru/download
 - **Blog**: https://nullify.guru/blog
+- **Nullify vs Granola**: https://nullify.guru/nullify-vs-granola
+- **Nullify vs Otter.ai**: https://nullify.guru/nullify-vs-otter-ai
+- **Nullify vs Fireflies.ai**: https://nullify.guru/nullify-vs-fireflies
 - **GitHub**: https://github.com/khaoss85/anti-granola
 - **LLM summary**: https://nullify.guru/llms.txt
