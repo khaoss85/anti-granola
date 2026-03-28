@@ -39,6 +39,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/nullify-vs-granola" className="text-sm text-zinc-500 transition hover:text-white">
+                  Nullify vs Granola
+                </Link>
+              </li>
+              <li>
+                <Link href="/nullify-vs-otter-ai" className="text-sm text-zinc-500 transition hover:text-white">
+                  Nullify vs Otter.ai
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://github.com/khaoss85/anti-granola"
                   target="_blank"
