@@ -128,8 +128,8 @@ export class PsychoacousticMasker {
   }
 
   /**
-   * Approximate IFFT using overlap-add of band-filtered noise.
-   * For real-time performance, this is faster than a full IFFT.
+   * Approximate IFFT via sum-of-cosines synthesis.
+   * O(N*K) where K = active bins. Acceptable for N=1024.
    */
   private synthesizeNoise(noiseReal: Float32Array, noiseImag: Float32Array): Float32Array {
     const output = new Float32Array(this.fftSize)

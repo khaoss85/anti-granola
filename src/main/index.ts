@@ -146,9 +146,9 @@ declare module 'electron' {
   }
 }
 
-app.on('before-quit', () => {
+app.on('before-quit', async () => {
   app.isQuitting = true
-  shieldManager?.deactivate()
+  await shieldManager?.deactivate()
   detectorManager?.stop()
   trayManager?.destroy()
 })

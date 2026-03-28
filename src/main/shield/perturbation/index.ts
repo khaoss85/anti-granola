@@ -45,6 +45,11 @@ export class PerturbationEngineImpl implements PerturbationEngine {
       return input
     }
 
+    // Guard: FFT requires exact buffer size — pass through if mismatched
+    if (input.length !== this.fftProcessor.getSize()) {
+      return input
+    }
+
     // FFT forward
     const { real, imag } = this.fftProcessor.forward(input)
     const magnitude = this.fftProcessor.getMagnitude(real, imag)
