@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Download, Apple, Monitor, ExternalLink } from 'lucide-react'
+import { DOWNLOADS } from '@/lib/downloads'
 
 function useOS() {
   const [os, setOS] = useState<'mac' | 'windows' | 'unknown'>('unknown')
@@ -26,7 +27,7 @@ export default function DownloadSection() {
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href="https://github.com/khaoss85/nullify/releases"
+            href={os === 'mac' ? DOWNLOADS.mac.arm64 : os === 'windows' ? DOWNLOADS.windows.x64 : DOWNLOADS.allReleases}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 rounded-xl bg-red-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-red-700"
@@ -47,7 +48,7 @@ export default function DownloadSection() {
 
           {os !== 'unknown' && (
             <a
-              href="https://github.com/khaoss85/nullify/releases"
+              href={os === 'mac' ? DOWNLOADS.windows.x64 : DOWNLOADS.mac.arm64}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-zinc-500 transition hover:text-white"

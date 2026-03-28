@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Download, Apple, Monitor, ExternalLink, Check, ArrowLeft } from 'lucide-react'
+import { DOWNLOADS } from '@/lib/downloads'
 
 function useOS() {
   const [os, setOS] = useState<'mac' | 'windows' | 'unknown'>('unknown')
@@ -36,7 +37,7 @@ export default function DownloadPageClient() {
         {/* Primary download */}
         <div className="mt-12 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
           <a
-            href="https://github.com/khaoss85/nullify/releases"
+            href={os === 'mac' ? DOWNLOADS.mac.arm64 : os === 'windows' ? DOWNLOADS.windows.x64 : DOWNLOADS.allReleases}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 rounded-xl bg-red-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-red-700"
@@ -56,7 +57,7 @@ export default function DownloadPageClient() {
           </a>
           {os !== 'unknown' && (
             <a
-              href="https://github.com/khaoss85/nullify/releases"
+              href={os === 'mac' ? DOWNLOADS.windows.x64 : DOWNLOADS.mac.arm64}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-sm text-zinc-500 transition hover:text-white"
@@ -66,6 +67,21 @@ export default function DownloadPageClient() {
             </a>
           )}
         </div>
+
+        {/* Mac Intel option */}
+        {os === 'mac' && (
+          <p className="mt-3 text-sm text-zinc-500">
+            Using an Intel Mac?{' '}
+            <a
+              href={DOWNLOADS.mac.x64}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-400 hover:text-red-300 transition"
+            >
+              Download Intel version
+            </a>
+          </p>
+        )}
 
         {/* System Requirements */}
         <div className="mt-16 grid gap-8 sm:grid-cols-2">
@@ -136,7 +152,7 @@ export default function DownloadPageClient() {
             All versions are available on GitHub Releases.
           </p>
           <a
-            href="https://github.com/khaoss85/nullify/releases"
+            href={DOWNLOADS.allReleases}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 text-sm text-red-400 transition hover:text-red-300"

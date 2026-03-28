@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Shield, Download, Apple, Monitor } from 'lucide-react'
 import { GitHubIcon } from '@/components/icons'
+import { DOWNLOADS } from '@/lib/downloads'
 
 function useOS() {
   const [os, setOS] = useState<'mac' | 'windows' | 'unknown'>('unknown')
@@ -59,7 +60,7 @@ export default function Hero() {
         {/* CTAs */}
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href="https://github.com/khaoss85/nullify/releases"
+            href={os === 'mac' ? DOWNLOADS.mac.arm64 : os === 'windows' ? DOWNLOADS.windows.x64 : DOWNLOADS.allReleases}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-xl bg-red-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-red-700"
