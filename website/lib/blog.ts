@@ -12,6 +12,7 @@ export interface BlogPost {
   excerpt: string
   content: string
   readingTime: string
+  wordCount: number
 }
 
 function calculateReadingTime(content: string): string {
@@ -40,6 +41,7 @@ export function getAllPosts(): BlogPost[] {
       excerpt: data.excerpt || '',
       content,
       readingTime: calculateReadingTime(content),
+      wordCount: content.split(/\s+/).length,
     }
   })
 
@@ -61,6 +63,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
     excerpt: data.excerpt || '',
     content,
     readingTime: calculateReadingTime(content),
+    wordCount: content.split(/\s+/).length,
   }
 }
 

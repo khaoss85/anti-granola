@@ -1,8 +1,13 @@
 import { EventEmitter } from 'events'
-import naudiodon from 'naudiodon'
 import type { IoStreamRead, IoStreamWrite } from 'naudiodon'
 import type { AudioPipelineConfig } from './types'
 import type { PerturbationEngine } from './perturbation'
+
+// Lazy-load naudiodon to avoid PortAudio init crash at startup
+function getNaudiodon() {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  return require('naudiodon') as typeof import('naudiodon')
+}
 
 export class AudioPipeline extends EventEmitter {
   private config: AudioPipelineConfig | null = null
@@ -21,6 +26,7 @@ export class AudioPipeline extends EventEmitter {
     }
 
     this.config = config
+    const naudiodon = getNaudiodon()
 
     this.inputStream = naudiodon.AudioIO({
       inOptions: {

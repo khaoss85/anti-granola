@@ -1,11 +1,17 @@
-import naudiodon from 'naudiodon'
 import type { AudioDeviceInfo } from '../../shared/types'
 
 const VIRTUAL_DEVICE_KEYWORDS = ['blackhole', 'vb-cable', 'vb-audio', 'virtual']
 
+// Lazy-load naudiodon to avoid PortAudio init crash at startup
+// (segfaults if microphone permission not yet granted)
+function getNaudiodon() {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  return require('naudiodon') as typeof import('naudiodon')
+}
+
 export class DeviceManager {
   getDevices(): AudioDeviceInfo[] {
-    const rawDevices = naudiodon.getDevices()
+    const rawDevices = getNaudiodon().getDevices()
     const devices: AudioDeviceInfo[] = []
 
     for (const d of rawDevices) {
@@ -53,7 +59,6 @@ export class DeviceManager {
   private getDefaultInputId(
     rawDevices: Array<{ id: number; maxInputChannels: number; hostAPIName: string }>
   ): number {
-    // Prefer CoreAudio on macOS
     const coreAudio = rawDevices.find(
       (d) => d.maxInputChannels > 0 && d.hostAPIName === 'Core Audio'
     )

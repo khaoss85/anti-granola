@@ -32,6 +32,13 @@ export async function generateMetadata({
       type: 'article',
       publishedTime: post.date,
       url: `https://nullify.guru/blog/${slug}`,
+      images: [
+        {
+          url: `/blog/${slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
   }
 }
@@ -104,6 +111,7 @@ export default async function BlogPostPage({
                 description: post.description,
                 date: post.date,
                 slug: post.slug,
+                wordCount: post.wordCount,
               })
             ),
           }}

@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { getSoftwareSchema } from "@/lib/schema";
+import { getSoftwareSchema, getOrganizationSchema, getWebsiteSchema } from "@/lib/schema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -43,6 +43,14 @@ export const metadata: Metadata = {
     title: "Nullify — Detect & Block Invisible Meeting Transcription",
     description:
       "Free open-source desktop app that detects hidden meeting transcription tools like Granola, Otter.ai, and Fireflies. Protect your meeting privacy.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Nullify — Detect & Block Invisible Meeting Transcription",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -56,6 +64,14 @@ export const metadata: Metadata = {
   },
 };
 
+export function generateViewport(): Viewport {
+  return {
+    themeColor: '#dc2626',
+    width: 'device-width',
+    initialScale: 1,
+  }
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -68,6 +84,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(getSoftwareSchema()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getOrganizationSchema()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getWebsiteSchema()),
           }}
         />
       </head>

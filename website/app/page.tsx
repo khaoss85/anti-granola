@@ -6,7 +6,7 @@ import Features from '@/components/Features'
 import DownloadSection from '@/components/DownloadSection'
 import SupportProject from '@/components/SupportProject'
 import FAQ from '@/components/FAQ'
-import { getFAQSchema } from '@/lib/schema'
+import { getFAQSchema, getHowToSchema } from '@/lib/schema'
 
 const faqData = [
   {
@@ -48,6 +48,12 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(getFAQSchema(faqData)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getHowToSchema()),
         }}
       />
       <Hero />
