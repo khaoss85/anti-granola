@@ -55,7 +55,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/khaoss85/anti-granola"
+                  href="https://github.com/khaoss85/nullify"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-sm text-zinc-500 transition hover:text-white"
@@ -73,7 +73,7 @@ export default function Footer() {
             <ul className="mt-3 space-y-2">
               <li>
                 <a
-                  href="https://github.com/khaoss85/anti-granola/issues"
+                  href="https://github.com/khaoss85/nullify/issues"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-zinc-500 transition hover:text-white"
@@ -94,7 +94,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/khaoss85/anti-granola"
+                  href="https://github.com/khaoss85/nullify"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-sm text-zinc-500 transition hover:text-white"

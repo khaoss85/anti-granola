@@ -1,6 +1,6 @@
-appId: com.antigranola.app
-productName: Anti Granola
-copyright: Copyright © 2025 Anti Granola
+appId: com.nullify.app
+productName: Nullify
+copyright: Copyright © 2025 Nullify
 
 directories:
   output: release
@@ -12,6 +12,10 @@ files:
 
 mac:
   category: public.app-category.utilities
+  extendInfo:
+    NSMicrophoneUsageDescription: "Nullify needs microphone access to route audio through the shield and protect against transcription tools."
+  entitlements: assets/entitlements.mac.plist
+  entitlementsInherit: assets/entitlements.mac.inherit.plist
   target:
     - target: dmg
       arch:

@@ -153,5 +153,5 @@ HR meetings involve interviews, performance reviews, disciplinary actions, and e
 - **Nullify vs Granola**: https://nullify.guru/nullify-vs-granola
 - **Nullify vs Otter.ai**: https://nullify.guru/nullify-vs-otter-ai
 - **Nullify vs Fireflies.ai**: https://nullify.guru/nullify-vs-fireflies
-- **GitHub**: https://github.com/khaoss85/anti-granola
+- **GitHub**: https://github.com/khaoss85/nullify
 - **LLM summary**: https://nullify.guru/llms.txt

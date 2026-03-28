@@ -59,7 +59,7 @@ export function SetupWizard({ onClose }: { onClose: () => void }) {
       <div className="mx-4 w-full max-w-lg rounded-2xl border border-gray-800 bg-gray-900 p-6">
         <h2 className="mb-1 text-lg font-bold text-white">Audio Setup Required</h2>
         <p className="mb-5 text-sm text-gray-400">
-          Anti Granola needs a virtual audio driver to intercept and protect your audio.
+          Nullify needs a virtual audio driver to intercept and protect your audio.
           Install <span className="font-medium text-white">{driverName}</span> to continue.
         </p>
 

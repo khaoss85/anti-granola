@@ -1,4 +1,4 @@
-import { app, BrowserWindow, session } from 'electron'
+import { app, BrowserWindow, session, systemPreferences } from 'electron'
 import { join } from 'path'
 import { TrayManager } from './tray'
 import { SettingsStore } from './settings-store'
@@ -20,7 +20,7 @@ function createWindow(): BrowserWindow {
     height: 700,
     minWidth: 800,
     minHeight: 600,
-    title: 'Anti Granola',
+    title: 'Nullify',
     backgroundColor: '#030712', // gray-950
     titleBarStyle: 'hiddenInset',
     webPreferences: {
@@ -40,7 +40,13 @@ function createWindow(): BrowserWindow {
   return win
 }
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+  // Request microphone permission on macOS before touching PortAudio.
+  // Without this, naudiodon's native getDevices() segfaults.
+  if (process.platform === 'darwin') {
+    await systemPreferences.askForMediaAccess('microphone')
+  }
+
   // Set CSP via session headers (works in both dev and production)
   session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
     const csp = isDev

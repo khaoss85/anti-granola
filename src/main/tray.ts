@@ -66,7 +66,7 @@ export class TrayManager {
   create(): void {
     const icon = createTrayIcon(TRAY_COLORS.inactive)
     this.tray = new Tray(icon)
-    this.tray.setToolTip('Anti Granola - Inactive')
+    this.tray.setToolTip('Nullify - Inactive')
     this.updateMenu()
 
     this.tray.on('click', () => {
@@ -89,10 +89,10 @@ export class TrayManager {
     this.tray.setImage(icon)
 
     const tooltips: Record<TrayState, string> = {
-      inactive: 'Anti Granola - Inactive',
-      monitoring: 'Anti Granola - Monitoring',
-      threat: 'Anti Granola - Threat Detected!',
-      shielded: 'Anti Granola - Shield Active',
+      inactive: 'Nullify - Inactive',
+      monitoring: 'Nullify - Monitoring',
+      threat: 'Nullify - Threat Detected!',
+      shielded: 'Nullify - Shield Active',
     }
     this.tray.setToolTip(tooltips[state])
     this.updateMenu()
@@ -116,7 +116,7 @@ export class TrayManager {
       },
       { type: 'separator' },
       {
-        label: 'Quit Anti Granola',
+        label: 'Quit Nullify',
         click: () => this.onQuit?.(),
       },
     ])

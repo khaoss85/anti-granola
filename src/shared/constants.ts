@@ -40,5 +40,5 @@ export const SHIELD_LEVEL_INFO: Record<ShieldLevel, { label: string; description
 }
 
 // App metadata
-export const APP_NAME = 'Anti Granola'
+export const APP_NAME = 'Nullify'
 export const APP_VERSION = '0.1.0'

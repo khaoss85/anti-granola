@@ -1,3 +1,4 @@
+import { systemPreferences } from 'electron'
 import type { AudioDeviceInfo } from '../../shared/types'
 
 const VIRTUAL_DEVICE_KEYWORDS = ['blackhole', 'vb-cable', 'vb-audio', 'virtual']
@@ -9,8 +10,19 @@ function getNaudiodon() {
   return require('naudiodon') as typeof import('naudiodon')
 }
 
+/** Returns true if microphone access is granted (or not macOS). */
+function hasMicrophoneAccess(): boolean {
+  if (process.platform !== 'darwin') return true
+  return systemPreferences.getMediaAccessStatus('microphone') === 'granted'
+}
+
 export class DeviceManager {
   getDevices(): AudioDeviceInfo[] {
+    // Guard: on macOS, PortAudio segfaults if microphone permission is not granted
+    if (!hasMicrophoneAccess()) {
+      return []
+    }
+
     const rawDevices = getNaudiodon().getDevices()
     const devices: AudioDeviceInfo[] = []
 

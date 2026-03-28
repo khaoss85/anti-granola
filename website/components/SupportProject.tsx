@@ -23,7 +23,7 @@ export default function SupportProject() {
             Buy Me a Coffee
           </a>
           <a
-            href="https://github.com/khaoss85/anti-granola"
+            href="https://github.com/khaoss85/nullify"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/5"

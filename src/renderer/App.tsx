@@ -18,6 +18,9 @@ export function App() {
       if (!hasVirtualDevice) {
         setShowSetup(true)
       }
+    }).catch(() => {
+      // Audio enumeration failed (permission denied or PortAudio unavailable)
+      setShowSetup(true)
     })
   }, [])
 

@@ -42,7 +42,7 @@ export function Dashboard() {
       <header className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <h1 className="text-lg font-bold tracking-wider text-white">
-            ANTI GRANOLA
+            NULLIFY
           </h1>
           <StatusDot />
         </div>

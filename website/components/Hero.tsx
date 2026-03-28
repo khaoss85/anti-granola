@@ -59,7 +59,7 @@ export default function Hero() {
         {/* CTAs */}
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href="https://github.com/khaoss85/anti-granola/releases"
+            href="https://github.com/khaoss85/nullify/releases"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-xl bg-red-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-red-700"
@@ -68,7 +68,7 @@ export default function Hero() {
             {os === 'mac' ? 'Download for Mac' : os === 'windows' ? 'Download for Windows' : 'Download Free'}
           </a>
           <a
-            href="https://github.com/khaoss85/anti-granola"
+            href="https://github.com/khaoss85/nullify"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-xl border border-white/20 px-8 py-4 text-lg font-medium text-white transition hover:bg-white/5"

@@ -1,8 +1,8 @@
-# Anti Granola
+# Nullify
 
 **Detect and block invisible meeting transcription tools. Protect your meeting privacy from AI notetakers recording without your consent.**
 
-Anti Granola is a free, open-source desktop app that detects hidden meeting transcription software (like Granola, Otter.ai, Fireflies, Read.ai, tl;dv, Fathom, Supernormal, Tactiq) running on your computer and shields your audio in real time so these tools can't transcribe your conversations.
+Nullify is a free, open-source desktop app that detects hidden meeting transcription software (like Granola, Otter.ai, Fireflies, Read.ai, tl;dv, Fathom, Supernormal, Tactiq) running on your computer and shields your audio in real time so these tools can't transcribe your conversations.
 
 ---
 
@@ -14,7 +14,7 @@ AI meeting assistants like **Granola** run silently in the background, capturing
 
 ## How It Works
 
-Anti Granola combines two layers of protection:
+Nullify combines two layers of protection:
 
 ### 1. Detection Engine
 - **Process scanning** — continuously monitors running processes for known transcription tools (Granola, Otter.ai, Fireflies, Read.ai, tl;dv, Fathom, Supernormal, Tactiq)
@@ -54,8 +54,8 @@ Pre-built binaries are available on the [Releases](../../releases) page:
 
 ```bash
 # Clone the repository
-git clone https://github.com/khaoss85/anti-granola.git
-cd anti-granola
+git clone https://github.com/khaoss85/nullify.git
+cd nullify
 
 # Install dependencies
 npm install
@@ -78,9 +78,9 @@ npm run package:win   # Windows
   - **macOS**: [BlackHole](https://github.com/ExistentialAudio/BlackHole)
   - **Windows**: [VB-Cable](https://vb-audio.com/Cable/)
 
-## Why Anti Granola?
+## Why Nullify?
 
-| Concern | Anti Granola's Answer |
+| Concern | Nullify's Answer |
 |---|---|
 | Granola records my meetings without asking | Detects Granola and blocks its transcription |
 | Otter.ai joins calls silently | Monitors for Otter processes and API connections |
@@ -112,7 +112,6 @@ npm run package:win   # Windows
 
 ## Roadmap
 
-- [ ] Audio perturbation engine (Phase 2)
 - [ ] Browser extension detection for Chrome-based transcription plugins
 - [ ] Custom signature editor — add your own detection rules
 - [ ] Automatic signature updates
@@ -120,17 +119,17 @@ npm run package:win   # Windows
 
 ## FAQ
 
-### Is Anti Granola legal?
-Yes. Anti Granola runs on your own computer and only affects audio on your own device. It does not interfere with other people's software — it protects your audio output from being transcribed without your consent.
+### Is Nullify legal?
+Yes. Nullify runs on your own computer and only affects audio on your own device. It does not interfere with other people's software — it protects your audio output from being transcribed without your consent.
 
 ### Does it block Granola from running?
-Anti Granola does not kill or block any process. It detects transcription tools and optionally applies audio perturbation so that the transcription quality degrades significantly — making the output useless to the recording tool.
+Nullify does not kill or block any process. It detects transcription tools and optionally applies audio perturbation so that the transcription quality degrades significantly — making the output useless to the recording tool.
 
 ### Will people on the call hear the audio shield?
 At the Stealth level, the perturbations are designed to be imperceptible to human ears while still confusing speech-to-text models. Higher levels introduce progressively more audible noise.
 
 ### Does it work with Zoom, Google Meet, Microsoft Teams?
-Yes. Anti Granola monitors your system-level audio and processes, so it works regardless of which video conferencing platform you use.
+Yes. Nullify monitors your system-level audio and processes, so it works regardless of which video conferencing platform you use.
 
 ### Can I add custom tools to detect?
 Custom signature support is on the roadmap. Currently the detection covers the most common AI meeting assistants.
@@ -147,4 +146,4 @@ MIT
 
 **Stop invisible meeting transcription. Take back your audio privacy.**
 
-*Anti Granola — because your meetings should be yours.*
+*Nullify — because your meetings should be yours.*

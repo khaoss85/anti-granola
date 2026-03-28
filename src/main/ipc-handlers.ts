@@ -51,7 +51,7 @@ export function registerIpcHandlers(
     const settings = settingsStore.get()
     if (settings.showNotifications) {
       const notification = new Notification({
-        title: 'Anti Granola - Threat Detected',
+        title: 'Nullify - Threat Detected',
         body: `Detected: ${data.threats.map((t: { name: string }) => t.name).join(', ')}`,
         urgency: 'critical',
       })

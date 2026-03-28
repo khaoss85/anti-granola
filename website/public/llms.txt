@@ -24,5 +24,5 @@ Nullify is a security application for macOS and Windows that protects meeting pr
 - Homepage: https://nullify.guru
 - Download: https://nullify.guru/download
 - Blog: https://nullify.guru/blog
-- GitHub: https://github.com/khaoss85/anti-granola
+- GitHub: https://github.com/khaoss85/nullify
 - Full LLM context: https://nullify.guru/llms-full.txt

@@ -1,5 +1,5 @@
 {
-  "name": "anti-granola",
+  "name": "nullify",
   "version": "0.1.0",
   "description": "Detect and neutralize invisible meeting transcription tools",
   "main": "dist/main/index.js",
