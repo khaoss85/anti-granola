@@ -9,7 +9,7 @@ export const DOWNLOADS = {
     x64: `${BASE}/Nullify-${VERSION}.dmg`,
   },
   windows: {
-    x64: `${BASE}/Nullify-Setup-${VERSION}.exe`,
+    x64: `${BASE}/Nullify.Setup.${VERSION}.exe`,
   },
   allReleases: 'https://github.com/khaoss85/nullify/releases',
 } as const
